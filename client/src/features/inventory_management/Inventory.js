@@ -5,7 +5,9 @@ import ItemsList from "./ItemsList";
 import SearchBar from "../../components/SearchBar";
 import axios from "axios";
 
-const InventoryIndex = () => {
+import { API_HOST } from "../../configs/config";
+
+const Inventory = () => {
   const [items, setItems] = useState([]);
   const [itemsToDisplay, setItemsToDisplay] = useState([]);
 
@@ -14,9 +16,9 @@ const InventoryIndex = () => {
   }, []);
 
   const fetchItems = async () => {
-    const res = await axios.get("http://localhost:5000/api/items");
+    const res = await axios.get(`http://${API_HOST}:5000/api/items`);
     const data = res.data;
-    console.log(data);
+
     return data;
   };
 
@@ -48,4 +50,4 @@ const InventoryIndex = () => {
   );
 };
 
-export default InventoryIndex;
+export default Inventory;
