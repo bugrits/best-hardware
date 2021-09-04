@@ -23,7 +23,8 @@ const ItemsForm = (props) => {
   };
 
   const addTask = async (itemObj) => {
-    const res = await axios.post(`http://${API_HOST}:5000/api/items`, itemObj);
+    const apiURL = `http://${API_HOST}:5000/api/items`;
+    const res = await axios.post(apiURL, itemObj);
     props.onSubmit(res);
   };
 
