@@ -1,5 +1,8 @@
 import { useState } from "react";
+
 import axios from "axios";
+
+import { API_HOST } from "../../configs/config";
 
 const ItemsForm = (props) => {
   const [name, setName] = useState("");
@@ -20,7 +23,8 @@ const ItemsForm = (props) => {
   };
 
   const addTask = async (itemObj) => {
-    const res = await axios.post(`http://localhost:5000/api/items`, itemObj);
+    const apiURL = `${API_HOST}/api/items`;
+    const res = await axios.post(apiURL, itemObj);
     props.onSubmit(res);
   };
 

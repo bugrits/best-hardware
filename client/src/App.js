@@ -1,11 +1,11 @@
-import InventoryIndex from "./features/inventory_management/index";
+import Inventory from "./features/inventory_management/Inventory";
 
 function App() {
   return (
     <div>
       <header></header>
       <div className="container">
-        <InventoryIndex />
+        <Inventory />
       </div>
       <footer></footer>
     </div>
