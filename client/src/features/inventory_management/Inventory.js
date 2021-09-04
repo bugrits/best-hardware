@@ -16,6 +16,7 @@ const Inventory = () => {
   }, []);
 
   const fetchItems = async () => {
+    console.log(`ENVI: ${process.env.NODE_ENV} API_HOST: ${API_HOST}`);
     const res = await axios.get(`http://${API_HOST}:5000/api/items`);
     const data = res.data;
 
