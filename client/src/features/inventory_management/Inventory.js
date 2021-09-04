@@ -16,7 +16,7 @@ const Inventory = () => {
   }, []);
 
   const fetchItems = async () => {
-    const apiURL = `http://${API_HOST}/api/items`;
+    const apiURL = `${API_HOST}/api/items`;
     const res = await axios.get(apiURL);
     const data = res.data;
 
