@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv/config");
+
 const app = express();
 
 mongoose
@@ -9,7 +10,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("Database connected!"))
+  .then(() => console.log("Connected to MongoDB!"))
   .catch((err) => console.log(err));
 
 const port = process.env.PORT || 5000;
@@ -23,7 +24,7 @@ app.use(cors());
 app.use("/api", itemRouter);
 
 app.get("/", (req, res) => {
-  res.send("Welcome");
+  res.send("WELCOME TO THE BEST HARDWARE API");
 });
 
 app.server = app.listen(port, () => {});

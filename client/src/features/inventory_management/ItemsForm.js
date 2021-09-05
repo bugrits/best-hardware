@@ -1,11 +1,22 @@
+// Packages
 import { useState } from "react";
-
 import axios from "axios";
 
+// Configs
 import { API_HOST } from "../../configs/config";
+
+// Common Components
+import Label from "../../components/Label";
+import InputBox from "../../components/InputBox";
+import TextArea from "../../components/TextArea";
+import Button from "../../components/Button";
 
 const ItemsForm = (props) => {
   const [name, setName] = useState("");
+  const [code, setCode] = useState("");
+  const [retailPrice, setRetailPrice] = useState(0);
+  const [sellingPrice, setSellingPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
@@ -13,13 +24,15 @@ const ItemsForm = (props) => {
 
     const itemObj = {
       name,
+      code,
+      retailPrice,
+      sellingPrice,
+      quantity,
       description,
     };
 
     addTask(itemObj);
-
-    setName("");
-    setDescription("");
+    refreshValues();
   };
 
   const addTask = async (itemObj) => {
@@ -28,39 +41,74 @@ const ItemsForm = (props) => {
     props.onSubmit(res);
   };
 
+  const refreshValues = () => {
+    setName("");
+    setCode("");
+    setRetailPrice(0);
+    setSellingPrice(0);
+    setQuantity(0);
+    setDescription("");
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="name" className="form-label mt-4">
-          Name:{" "}
-        </label>
-        <input
+        <Label htmlFor="name" labelVal="Name" />
+        <InputBox
           type="text"
-          className="form-control"
           id="name"
           placeholder="Enter item name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-      </div>
+          onChange={setName}
+        />
 
-      <div className="form-group">
-        <label htmlFor="description" className="form-label mt-4">
-          Description:{" "}
-        </label>
-        <textarea
-          className="form-control"
+        <Label htmlFor="code" labelVal="Code" />
+        <InputBox
+          type="text"
+          id="code"
+          placeholder="Enter item code"
+          value={code}
+          onChange={setCode}
+        />
+
+        <Label htmlFor="retailPrice" labelVal="Retail Price" />
+        <InputBox
+          type="number"
+          id="retailPrice"
+          placeholder="Enter item retail price"
+          value={retailPrice}
+          onChange={setRetailPrice}
+        />
+
+        <Label htmlFor="sellingPrice" labelVal="Selling Price" />
+        <InputBox
+          type="number"
+          id="sellingPrice"
+          placeholder="Enter item selling price"
+          value={sellingPrice}
+          onChange={setSellingPrice}
+        />
+
+        <Label htmlFor="quantity" labelVal="Quantity" />
+        <InputBox
+          type="number"
+          id="quantity"
+          placeholder="Enter item quantity"
+          value={quantity}
+          onChange={setQuantity}
+        />
+
+        <Label htmlFor="description" labelVal="Description" />
+        <TextArea
           id="description"
           rows="3"
           placeholder="Enter item description"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
+          onChange={setDescription}
+        />
       </div>
 
-      <button type="submit" className="btn btn-primary mt-4">
-        Submit
-      </button>
+      <Button type="submit" value="Submit" />
     </form>
   );
 };
