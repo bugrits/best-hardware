@@ -36,14 +36,14 @@ const Modal = (props) => {
     return data;
   };
 
-  const refreshState = () => {
-    setName(itemForEdit.name);
-    setCode(itemForEdit.code);
-    setRetailPrice(itemForEdit.retailPrice);
-    setSellingPrice(itemForEdit.sellingPrice);
-    setQuantity(itemForEdit.quantity);
-    setDescription(itemForEdit.description);
-  };
+  // const refreshState = () => {
+  //   setName(itemForEdit.name);
+  //   setCode(itemForEdit.code);
+  //   setRetailPrice(itemForEdit.retailPrice);
+  //   setSellingPrice(itemForEdit.sellingPrice);
+  //   setQuantity(itemForEdit.quantity);
+  //   setDescription(itemForEdit.description);
+  // };
 
   const saveChanges = async () => {
     if (!name || !code || !retailPrice || !sellingPrice || !quantity) {
@@ -57,7 +57,8 @@ const Modal = (props) => {
   };
 
   const closeModal = async () => {
-    refreshState();
+    // refreshState();
+    window.location.reload();
     props.onClick(false);
   };
 
