@@ -43,14 +43,14 @@ const Inventory = () => {
     <div>
       <div className="row">
         <div className="col-md-12">
-          <SearchBar placeholder="Search item" onChange={filterItems} />
+          <SearchBar placeholder="Search Item" onChange={filterItems} />
         </div>
       </div>
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-3">
           <ItemsForm onSubmit={loadItems} />
         </div>
-        <div className="col-md-8">
+        <div className="col-md-9">
           <ItemsList items={itemsToDisplay} />
         </div>
       </div>
