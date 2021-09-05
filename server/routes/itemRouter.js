@@ -7,6 +7,26 @@ const routes = (Item) => {
 
   itemRouter.route("/items").post(controller.postItem).get(controller.getItems);
 
+  // middleware
+  itemRouter.use("/items/:itemId", (req, res, next) => {
+    Item.findById(req.params.itemId, (err, item) => {
+      if (err) {
+        return res.send(err);
+      }
+      if (item) {
+        // req.itemId = req.params.itemId;
+        req.item = item;
+        return next();
+      }
+      return res.sendStatus(404);
+    });
+  });
+
+  itemRouter
+    .route("/items/:itemId")
+    .get(controller.getItem)
+    .patch(controller.updateItem);
+
   return itemRouter;
 };
 
