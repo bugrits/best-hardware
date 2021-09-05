@@ -1,8 +1,8 @@
 export const columnNames = [
   "Name",
   "Code",
-  "Retail Price",
-  "Selling Price",
+  "SRP",
+  "Price",
   "Quantity",
   "Description",
   "Action",

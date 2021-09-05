@@ -27,6 +27,7 @@ const Modal = (props) => {
       sellingPrice,
       quantity,
       description,
+      modifiedDate: Date.now(),
     };
 
     const res = await axios.patch(apiURL, itemObj);
@@ -35,10 +36,29 @@ const Modal = (props) => {
     return data;
   };
 
-  const onSave = async () => {
-    updateItem(itemForEdit._id);
+  const refreshState = () => {
+    setName(itemForEdit.name);
+    setCode(itemForEdit.code);
+    setRetailPrice(itemForEdit.retailPrice);
+    setSellingPrice(itemForEdit.sellingPrice);
+    setQuantity(itemForEdit.quantity);
+    setDescription(itemForEdit.description);
+  };
+
+  const saveChanges = async () => {
+    if (!name || !code || !retailPrice || !sellingPrice || !quantity) {
+      alert("Please fill-in required fields.");
+    } else {
+      updateItem(itemForEdit._id);
+      props.onClick(false);
+
+      setTimeout(() => window.location.reload(), 100);
+    }
+  };
+
+  const closeModal = async () => {
+    refreshState();
     props.onClick(false);
-    window.location.reload();
   };
 
   return (
@@ -58,7 +78,7 @@ const Modal = (props) => {
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
-              onClick={() => props.onClick(false)}
+              onClick={closeModal}
             >
               <span aria-hidden="true"></span>
             </button>
@@ -72,6 +92,7 @@ const Modal = (props) => {
               placeholder="Enter item name"
               value={name}
               onChange={setName}
+              required={true}
             />
 
             <Label htmlFor="code" labelVal="Code" />
@@ -81,6 +102,7 @@ const Modal = (props) => {
               placeholder="Enter item code"
               value={code}
               onChange={setCode}
+              required={true}
             />
 
             <Label htmlFor="retailPrice" labelVal="Retail Price" />
@@ -90,6 +112,7 @@ const Modal = (props) => {
               placeholder="Enter item retail price"
               value={retailPrice}
               onChange={setRetailPrice}
+              required={true}
             />
 
             <Label htmlFor="sellingPrice" labelVal="Selling Price" />
@@ -99,6 +122,7 @@ const Modal = (props) => {
               placeholder="Enter item selling price"
               value={sellingPrice}
               onChange={setSellingPrice}
+              required={true}
             />
 
             <Label htmlFor="quantity" labelVal="Quantity" />
@@ -108,6 +132,7 @@ const Modal = (props) => {
               placeholder="Enter item quantity"
               value={quantity}
               onChange={setQuantity}
+              required={true}
             />
 
             <Label htmlFor="description" labelVal="Description" />
@@ -121,14 +146,18 @@ const Modal = (props) => {
           </div>
 
           <div className="modal-footer">
-            <button type="button" className="btn btn-primary" onClick={onSave}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={saveChanges}
+            >
               Save
             </button>
             <button
               type="button"
               className="btn btn-secondary"
               data-bs-dismiss="modal"
-              onClick={() => props.onClick(false)}
+              onClick={closeModal}
             >
               Cancel
             </button>

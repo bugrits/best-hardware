@@ -3,6 +3,7 @@ const InputBox = (props) => {
   const id = props.id;
   const placeholder = props.placeholder;
   const value = props.value || "";
+  const required = props.required;
 
   return (
     <div>
@@ -13,6 +14,7 @@ const InputBox = (props) => {
         placeholder={placeholder}
         value={value}
         onChange={(e) => props.onChange(e.target.value)}
+        required={required}
       ></input>
     </div>
   );

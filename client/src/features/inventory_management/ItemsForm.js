@@ -60,6 +60,7 @@ const ItemsForm = (props) => {
           placeholder="Enter item name"
           value={name}
           onChange={setName}
+          required={true}
         />
 
         <Label htmlFor="code" labelVal="Code" />
@@ -69,24 +70,27 @@ const ItemsForm = (props) => {
           placeholder="Enter item code"
           value={code}
           onChange={setCode}
+          required={true}
         />
 
-        <Label htmlFor="retailPrice" labelVal="Retail Price" />
+        <Label htmlFor="retailPrice" labelVal="SRP" />
         <InputBox
           type="number"
           id="retailPrice"
           placeholder="Enter item retail price"
           value={retailPrice}
           onChange={setRetailPrice}
+          required={true}
         />
 
-        <Label htmlFor="sellingPrice" labelVal="Selling Price" />
+        <Label htmlFor="sellingPrice" labelVal="Price" />
         <InputBox
           type="number"
           id="sellingPrice"
           placeholder="Enter item selling price"
           value={sellingPrice}
           onChange={setSellingPrice}
+          required={true}
         />
 
         <Label htmlFor="quantity" labelVal="Quantity" />
@@ -96,6 +100,7 @@ const ItemsForm = (props) => {
           placeholder="Enter item quantity"
           value={quantity}
           onChange={setQuantity}
+          required={true}
         />
 
         <Label htmlFor="description" labelVal="Description" />
