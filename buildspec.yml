@@ -1,0 +1,79 @@
+version: 0.2
+
+run-as: ubuntu
+
+env:
+  shell: bash
+  variables:
+    key: "value"
+    key: "value"
+  #parameter-store:
+  #  key: "value"
+  #  key: "value"
+  #exported-variables:
+  #  - variable
+  #  - variable
+  #secrets-manager:
+  #  key: secret-id:json-key:version-stage:version-id
+  #git-credential-helper: no | yes
+
+#proxy:
+#  upload-artifacts: no | yes
+#  logs: no | yes
+
+#batch:
+  fast-fail: false | true
+  # build-list:
+  # build-matrix:
+  # build-graph:
+        
+phases:
+  install:
+    run-as: ubuntu
+    on-failure: ABORT
+    #runtime-versions:
+    #  runtime: version
+    #  runtime: version
+    commands:
+      - curl https://gist.githubusercontent.com/bugrits/1ccb6c12116ed4caad88252b4adbd2b3/raw/584e4797b4b9ff403416737b58ba76eb5021908d/ubuntumern.sh | bash
+    finally:
+      - echo Installed requirements
+  #pre_build:
+  #  run-as: ubuntu
+  #  on-failure: ABORT | CONTINUE
+  #  commands:
+  #    - command
+  #    - command
+  #  finally:
+  #    - command
+  #    - command
+  build:
+    run-as: ubuntu
+    on-failure: ABORT
+    commands:
+      - echo Entered the build phase...
+      - cd /best-hardware/client
+      - npm i
+      - npm install pm2@latest -g
+      - npm run build
+      - cd ../server
+      - npm i
+      - npm install pm2@latest -g
+    finally:
+      - echo Done building
+  post_build:
+    run-as: ubuntu
+    on-failure: ABORT
+    commands:
+      - Deploying...
+      - pm2 serve build/ 3000 --name "Client"
+      - pm2 start app.js --name "Server"
+    finally:
+      - echo Done!
+reports:
+  report-group-name-or-arn:
+    files:
+      - "**/*"
+    base-directory: 'target/tests/reports'
+    discard-paths: no
+    file-format: JUNITXML
