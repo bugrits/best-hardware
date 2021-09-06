@@ -4,9 +4,9 @@ run-as: ubuntu
 
 env:
   shell: bash
-  variables:
-    key: "value"
-    key: "value"
+  #variables:
+  #  key: "value"
+  #  key: "value"
   #parameter-store:
   #  key: "value"
   #  key: "value"
@@ -22,7 +22,7 @@ env:
 #  logs: no | yes
 
 #batch:
-  fast-fail: false | true
+  #fast-fail: false | true
   # build-list:
   # build-matrix:
   # build-graph:
@@ -35,9 +35,15 @@ phases:
     #  runtime: version
     #  runtime: version
     commands:
-      - curl https://gist.githubusercontent.com/bugrits/1ccb6c12116ed4caad88252b4adbd2b3/raw/584e4797b4b9ff403416737b58ba76eb5021908d/ubuntumern.sh | bash
+      - apt-get update -y
+      - apt install net-tools
+      - apt-get install -y nginx
+      - systemctl start nginx
+      - systemctl enable nginx
+      - apt-get install -y nodejs
+      - apt install -y npm
     finally:
-      - echo Installed requirements
+      - echo "Installed requirements"
   #pre_build:
   #  run-as: ubuntu
   #  on-failure: ABORT | CONTINUE
