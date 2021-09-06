@@ -49,17 +49,19 @@ const Modal = (props) => {
     if (!name || !code || !retailPrice || !sellingPrice || !quantity) {
       alert("Please fill-in required fields.");
     } else {
-      updateItem(itemForEdit._id);
-      props.onClick(false);
-
-      setTimeout(() => window.location.reload(), 100);
+      updateItem(itemForEdit._id)
+        .then(() => {
+          props.onClick(false);
+          window.location.reload();
+        })
+        .catch((err) => console.log(`Error: ${err}`));
     }
   };
 
-  const closeModal = async () => {
+  const closeModal = () => {
     // refreshState();
-    window.location.reload();
     props.onClick(false);
+    window.location.reload();
   };
 
   return (
