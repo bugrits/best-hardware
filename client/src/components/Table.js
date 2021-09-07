@@ -19,7 +19,7 @@ const Table = (props) => {
         </thead>
         <tbody>
           {items.map((item, index) => (
-            <tr className="table-dark" key={index}>
+            <tr key={index}>
               <td>{item.name}</td>
               <td>{item.code}</td>
               <td>₱{item.retailPrice}</td>
