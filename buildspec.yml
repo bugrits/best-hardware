@@ -7,16 +7,20 @@ env:
         
 phases:
   install:
-    run-as: ubuntu
-    on-failure: ABORT
-
+    runtime-versions:
+      nodejs: 10
     commands:
-      - curl https://gist.githubusercontent.com/bugrits/1ccb6c12116ed4caad88252b4adbd2b3/raw/584e4797b4b9ff403416737b58ba76eb5021908d/ubuntumern.sh | bash
+      - npm install
       
   build:
-    run-as: ubuntu
     on-failure: ABORT
     commands:
+      - apt-get update -y
+      - apt install net-tools
+      - apt-get install -y nginx
+      - apt-get install -y nodejs
+      - apt install -y npm
+      - echo Installed requirements
       - echo Entered the build phase...
       - cd /best-hardware/client
       - npm i
@@ -25,11 +29,9 @@ phases:
       - cd ../server
       - npm i
       - npm install pm2@latest -g
-    finally:
       - echo Done building
       
   post_build:
-    run-as: ubuntu
     on-failure: ABORT
     commands:
       - echo Deploying...
@@ -37,5 +39,4 @@ phases:
       - pm2 serve build/ 3000 --name "Client"
       - cd../server/
       - pm2 start app.js --name "Server"
-    finally:
       - echo Done!
