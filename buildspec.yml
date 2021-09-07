@@ -10,7 +10,7 @@ phases:
     runtime-versions:
       nodejs: 14
     commands:
-      - npm install
+      - echo Nothing to install here
       
   build:
     on-failure: ABORT
