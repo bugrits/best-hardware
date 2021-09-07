@@ -11,16 +11,7 @@ phases:
       nodejs: 14
       
   build:
-    on-failure: ABORT
-    commands:
-      - echo Building file
-      - cd best-hardware/client/
-      - pm2 serve build/ 3000 --name "Client"
-      - cd../server/
-      - pm2 start app.js --name "Server"
+    on-failure: CONTINUE
 
-      
   post_build:
-    on-failure: ABORT
-    commands:
-      - echo Done!
+    on-failure: CONTINUE
