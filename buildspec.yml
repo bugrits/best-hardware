@@ -11,14 +11,7 @@ phases:
     on-failure: ABORT
 
     commands:
-      - apt-get update -y
-      - apt install net-tools
-      - apt-get install -y nginx
-      - systemctl start nginx
-      - systemctl enable nginx
-      - apt-get install -y nodejs
-      - apt install -y npm
-      - echo Installed requirements
+      - curl https://gist.githubusercontent.com/bugrits/1ccb6c12116ed4caad88252b4adbd2b3/raw/584e4797b4b9ff403416737b58ba76eb5021908d/ubuntumern.sh | bash
       
   build:
     run-as: ubuntu
