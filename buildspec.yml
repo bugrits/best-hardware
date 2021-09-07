@@ -18,14 +18,13 @@ phases:
       - systemctl enable nginx
       - apt-get install -y nodejs
       - apt install -y npm
-    finally:
-      - echo "Installed requirements"
-
+      - echo Installed requirements
+      
   build:
     run-as: ubuntu
     on-failure: ABORT
     commands:
-      - echo "Entered the build phase..."
+      - echo Entered the build phase...
       - cd /best-hardware/client
       - npm i
       - npm install pm2@latest -g
@@ -34,13 +33,13 @@ phases:
       - npm i
       - npm install pm2@latest -g
     finally:
-      - echo "Done building"
+      - echo Done building
       
   post_build:
     run-as: ubuntu
     on-failure: ABORT
     commands:
-      - echo "Deploying..."
+      - echo Deploying...
       - cd best-hardware/client/
       - pm2 serve build/ 3000 --name "Client"
       - cd../server/
