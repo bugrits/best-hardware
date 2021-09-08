@@ -1,22 +1,34 @@
-import { useState } from "react";
+// Packages
+import { useState, useEffect } from "react";
 import axios from "axios";
 
+// constants
+import { API_HOST } from "../configs/config";
+
+// Common Components
 import Label from "./Label";
 import InputBox from "./InputBox";
 import TextArea from "./TextArea";
-
-import { API_HOST } from "../configs/config";
 
 const Modal = (props) => {
   const show = props.show;
   const itemForEdit = props.itemForEdit;
 
-  const [name = itemForEdit.name, setName] = useState();
-  const [code = itemForEdit.code, setCode] = useState();
-  const [retailPrice = itemForEdit.retailPrice, setRetailPrice] = useState();
-  const [sellingPrice = itemForEdit.sellingPrice, setSellingPrice] = useState();
-  const [quantity = itemForEdit.quantity, setQuantity] = useState();
-  const [description = itemForEdit.description, setDescription] = useState();
+  const [name, setName] = useState();
+  const [code, setCode] = useState();
+  const [retailPrice, setRetailPrice] = useState();
+  const [sellingPrice, setSellingPrice] = useState();
+  const [quantity, setQuantity] = useState();
+  const [description, setDescription] = useState();
+
+  useEffect(() => {
+    setName(itemForEdit.name);
+    setCode(itemForEdit.code);
+    setRetailPrice(itemForEdit.retailPrice);
+    setSellingPrice(itemForEdit.sellingPrice);
+    setQuantity(itemForEdit.quantity);
+    setDescription(itemForEdit.description);
+  }, [itemForEdit]);
 
   const updateItem = async (itemId) => {
     const apiURL = `${API_HOST}/api/items/${itemId}`;
@@ -36,14 +48,14 @@ const Modal = (props) => {
     return data;
   };
 
-  // const refreshState = () => {
-  //   setName(itemForEdit.name);
-  //   setCode(itemForEdit.code);
-  //   setRetailPrice(itemForEdit.retailPrice);
-  //   setSellingPrice(itemForEdit.sellingPrice);
-  //   setQuantity(itemForEdit.quantity);
-  //   setDescription(itemForEdit.description);
-  // };
+  const refreshState = () => {
+    setName(itemForEdit.name);
+    setCode(itemForEdit.code);
+    setRetailPrice(itemForEdit.retailPrice);
+    setSellingPrice(itemForEdit.sellingPrice);
+    setQuantity(itemForEdit.quantity);
+    setDescription(itemForEdit.description);
+  };
 
   const saveChanges = async () => {
     if (!name || !code || !retailPrice || !sellingPrice || !quantity) {
@@ -59,9 +71,8 @@ const Modal = (props) => {
   };
 
   const closeModal = () => {
-    // refreshState();
+    refreshState();
     props.onClick(false);
-    window.location.reload();
   };
 
   return (
