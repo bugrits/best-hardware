@@ -1,12 +1,14 @@
+// Packages
 import { useState } from "react";
 import axios from "axios";
 
+// Constants
 import { columnNames } from "./copy";
+import { API_HOST } from "../../configs/config";
 
+// Common Components
 import Table from "../../components/Table";
 import Modal from "../../components/Modal";
-
-import { API_HOST } from "../../configs/config";
 
 const ItemsList = (props) => {
   const items = props.items;

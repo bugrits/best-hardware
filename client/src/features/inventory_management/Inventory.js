@@ -32,7 +32,11 @@ const Inventory = () => {
   const filterItems = (chars) => {
     if (chars !== "") {
       setItemsToDisplay(
-        items.filter((i) => i.name.toLowerCase().includes(chars.toLowerCase()))
+        items.filter(
+          (i) =>
+            i.name.toLowerCase().includes(chars.toLowerCase()) ||
+            i.code.toLowerCase().includes(chars.toLowerCase())
+        )
       );
     } else {
       setItemsToDisplay(items);
