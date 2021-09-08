@@ -1,9 +1,12 @@
 import Inventory from "./features/inventory_management/Inventory";
+import Header from "./Header";
 
 function App() {
   return (
     <div>
-      <header></header>
+      <header>
+        <Header />
+      </header>
       <div className="container">
         <Inventory />
       </div>

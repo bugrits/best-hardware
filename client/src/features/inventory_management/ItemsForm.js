@@ -2,7 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-// Configs
+// Constants
 import { API_HOST } from "../../configs/config";
 
 // Common Components
@@ -42,12 +42,12 @@ const ItemsForm = (props) => {
   };
 
   const refreshValues = () => {
-    setName("");
-    setCode("");
-    setRetailPrice(0);
-    setSellingPrice(0);
-    setQuantity(0);
-    setDescription("");
+    setName();
+    setCode();
+    setRetailPrice();
+    setSellingPrice();
+    setQuantity();
+    setDescription();
   };
 
   return (
