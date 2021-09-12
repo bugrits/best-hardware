@@ -1,4 +1,4 @@
-import Inventory from "./features/inventory_management/Inventory";
+import ItemsInventory from "./features/inventory_management/ItemsInventory";
 import Header from "./Header";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
         <Header />
       </header>
       <div className="container">
-        <Inventory />
+        <ItemsInventory />
       </div>
       <footer></footer>
     </div>

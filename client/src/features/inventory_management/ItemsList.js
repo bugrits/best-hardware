@@ -36,6 +36,7 @@ const ItemsList = (props) => {
         show={showEditModal}
         itemForEdit={itemForEdit}
         onClick={setShowEditModal}
+        reloadItems={props.reloadItems}
       />
     </div>
   );

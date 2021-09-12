@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// constants
+// Constants
 import { API_HOST } from "../configs/config";
 
 // Common Components
@@ -64,7 +64,7 @@ const Modal = (props) => {
       updateItem(itemForEdit._id)
         .then(() => {
           props.onClick(false);
-          window.location.reload();
+          props.reloadItems();
         })
         .catch((err) => console.log(`Error: ${err}`));
     }

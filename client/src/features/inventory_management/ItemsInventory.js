@@ -7,7 +7,7 @@ import axios from "axios";
 
 import { API_HOST } from "../../configs/config";
 
-const Inventory = () => {
+const ItemsInventory = () => {
   const [items, setItems] = useState([]);
   const [itemsToDisplay, setItemsToDisplay] = useState([]);
 
@@ -55,11 +55,13 @@ const Inventory = () => {
           <ItemsForm onSubmit={loadItems} />
         </div>
         <div className="col-md-9">
-          <ItemsList items={itemsToDisplay} />
+          <ItemsList items={itemsToDisplay} reloadItems={loadItems} />
         </div>
       </div>
     </div>
   );
 };
 
-export default Inventory;
+// export const { loadItems } = loadItems();
+
+export default ItemsInventory;
