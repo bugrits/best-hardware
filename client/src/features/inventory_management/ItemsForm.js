@@ -12,12 +12,12 @@ import TextArea from "../../components/TextArea";
 import Button from "../../components/Button";
 
 const ItemsForm = (props) => {
-  const [name, setName] = useState("");
-  const [code, setCode] = useState("");
-  const [retailPrice, setRetailPrice] = useState(0);
-  const [sellingPrice, setSellingPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState();
+  const [code, setCode] = useState();
+  const [retailPrice, setRetailPrice] = useState();
+  const [sellingPrice, setSellingPrice] = useState();
+  const [quantity, setQuantity] = useState();
+  const [description, setDescription] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
