@@ -29,8 +29,8 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <a href="javascript:;" className="nav-link">
-                <i className="material-icons">account_circle</i>
-                Profile
+                <i className="material-icons">auto_delete</i>
+                Trash
               </a>
             </li>
             <li className="nav-item">

@@ -4,8 +4,8 @@ const Label = (props) => {
 
   return (
     <div>
-      <label htmlFor={htmlFor} className="form-label mt-4">
-        {labelVal}:{" "}
+      <label htmlFor={htmlFor} className="mt-4 bmd-label-floating">
+        <strong>{labelVal}: </strong>
       </label>
     </div>
   );

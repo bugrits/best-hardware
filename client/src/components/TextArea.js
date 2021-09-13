@@ -5,7 +5,7 @@ const TextArea = (props) => {
   const value = props.value || "";
 
   return (
-    <div>
+    <div className="has-info">
       <textarea
         className="form-control"
         id={id}

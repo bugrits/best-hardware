@@ -1,10 +1,12 @@
+import "./Table.css";
+
 const Table = (props) => {
   const columnNames = props.columnNames;
   const items = props.items;
 
   return (
     <div>
-      <table className="table table-hover">
+      <table className="table table-hover table-wrapper-scroll-y my-custom-scrollbar">
         <thead>
           <tr>
             {columnNames.map((columnName, index) => (
@@ -33,10 +35,7 @@ const Table = (props) => {
                 >
                   edit
                 </i>
-                <i
-                  className="material-icons"
-                  style={{ cursor: "pointer", marginLeft: "10px" }}
-                >
+                <i className="material-icons" style={{ cursor: "pointer" }}>
                   delete
                 </i>
               </td>
