@@ -94,15 +94,6 @@ const Modal = (props) => {
             >
               close
             </i>
-            {/* <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-              onClick={closeModal}
-            >
-              <span aria-hidden="true"></span>
-            </button> */}
           </div>
 
           <div className="modal-body">

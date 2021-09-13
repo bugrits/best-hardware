@@ -25,7 +25,7 @@ const Footer = () => {
           <a href="#" target="_blank">
             ViJao
           </a>{" "}
-          for Best Hardware.
+          for Best Hardware ^^
         </div>
       </div>
     </footer>
