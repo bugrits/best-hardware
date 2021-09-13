@@ -2,7 +2,7 @@ const SearchBar = (props) => {
   const placeholder = props.placeholder;
 
   return (
-    <div className="float-end">
+    <div className="form-group has-info float-right">
       <input
         type="text"
         className="form-control mt-4 mb-4"
