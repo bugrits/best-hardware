@@ -52,7 +52,7 @@ const ItemsForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
+      <div className="form-group has-info">
         <Label htmlFor="name" labelVal="Name" />
         <InputBox
           type="text"

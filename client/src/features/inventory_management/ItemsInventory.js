@@ -1,11 +1,14 @@
+// Packages
 import { useState, useEffect } from "react";
+import axios from "axios";
 
+// Constants
+import { API_HOST } from "../../configs/config";
+
+// Common Components
 import ItemsForm from "./ItemsForm";
 import ItemsList from "./ItemsList";
 import SearchBar from "../../components/SearchBar";
-import axios from "axios";
-
-import { API_HOST } from "../../configs/config";
 
 const ItemsInventory = () => {
   const [items, setItems] = useState([]);

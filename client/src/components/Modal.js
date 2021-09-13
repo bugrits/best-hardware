@@ -87,7 +87,14 @@ const Modal = (props) => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Edit Item</h5>
-            <button
+            <i
+              className="material-icons"
+              style={{ cursor: "pointer" }}
+              onClick={closeModal}
+            >
+              close
+            </i>
+            {/* <button
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
@@ -95,7 +102,7 @@ const Modal = (props) => {
               onClick={closeModal}
             >
               <span aria-hidden="true"></span>
-            </button>
+            </button> */}
           </div>
 
           <div className="modal-body">
@@ -162,7 +169,7 @@ const Modal = (props) => {
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-info"
               onClick={saveChanges}
             >
               Save

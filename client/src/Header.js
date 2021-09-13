@@ -1,33 +1,42 @@
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          BestHardware
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarColor03"
-          aria-controls="navbarColor03"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarColor03">
-          <ul className="navbar-nav me-auto">
+    <nav className="navbar navbar-expand-lg bg-info">
+      <div className="container">
+        <div className="navbar-translate">
+          <a className="navbar-brand" href="#0">
+            BEST HARDWARE
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link active" href="#">
-                Home
-                <span className="visually-hidden">(current)</span>
+              <a href="javascript:;" className="nav-link">
+                <i className="material-icons">shopping_cart</i>
+                Checkout
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Checkout
+              <a href="javascript:;" className="nav-link">
+                <i className="material-icons">account_circle</i>
+                Profile
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="javascript:;" className="nav-link">
+                <i className="material-icons">settings</i>
+                Settings
               </a>
             </li>
           </ul>

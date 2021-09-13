@@ -1,6 +1,3 @@
-import { FaPenSquare } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
-
 const Table = (props) => {
   const columnNames = props.columnNames;
   const items = props.items;
@@ -27,13 +24,21 @@ const Table = (props) => {
               <td>{item.quantity}</td>
               <td>{item.description}</td>
               <td>
-                <FaPenSquare
+                <i
+                  className="material-icons"
                   style={{ cursor: "pointer" }}
                   onClick={() =>
                     props.onClick({ showEditModal: true, id: item._id })
                   }
-                />
-                <FaTrash style={{ cursor: "pointer", marginLeft: "10px" }} />
+                >
+                  edit
+                </i>
+                <i
+                  className="material-icons"
+                  style={{ cursor: "pointer", marginLeft: "10px" }}
+                >
+                  delete
+                </i>
               </td>
             </tr>
           ))}
