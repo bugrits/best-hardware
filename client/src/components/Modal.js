@@ -117,7 +117,7 @@ const Modal = (props) => {
               required={true}
             />
 
-            <Label htmlFor="retailPrice" labelVal="Retail Price" />
+            <Label htmlFor="retailPrice" labelVal="SRP" />
             <InputBox
               type="number"
               id="retailPrice"
@@ -127,7 +127,7 @@ const Modal = (props) => {
               required={true}
             />
 
-            <Label htmlFor="sellingPrice" labelVal="Selling Price" />
+            <Label htmlFor="sellingPrice" labelVal="Price" />
             <InputBox
               type="number"
               id="sellingPrice"
