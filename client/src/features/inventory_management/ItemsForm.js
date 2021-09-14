@@ -12,12 +12,12 @@ import TextArea from "../../components/TextArea";
 import Button from "../../components/Button";
 
 const ItemsForm = (props) => {
-  const [name, setName] = useState("");
-  const [code, setCode] = useState("");
-  const [retailPrice, setRetailPrice] = useState(0);
-  const [sellingPrice, setSellingPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState();
+  const [code, setCode] = useState();
+  const [retailPrice, setRetailPrice] = useState();
+  const [sellingPrice, setSellingPrice] = useState();
+  const [quantity, setQuantity] = useState();
+  const [description, setDescription] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,66 +52,64 @@ const ItemsForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <Label htmlFor="name" labelVal="Name" />
-        <InputBox
-          type="text"
-          id="name"
-          placeholder="Enter item name"
-          value={name}
-          onChange={setName}
-          required={true}
-        />
+      <Label htmlFor="name" labelVal="Name" />
+      <InputBox
+        type="text"
+        id="name"
+        placeholder="Enter item name"
+        value={name}
+        onChange={setName}
+        required={true}
+      />
 
-        <Label htmlFor="code" labelVal="Code" />
-        <InputBox
-          type="text"
-          id="code"
-          placeholder="Enter item code"
-          value={code}
-          onChange={setCode}
-          required={true}
-        />
+      <Label htmlFor="code" labelVal="Code" />
+      <InputBox
+        type="text"
+        id="code"
+        placeholder="Enter item code"
+        value={code}
+        onChange={setCode}
+        required={true}
+      />
 
-        <Label htmlFor="retailPrice" labelVal="SRP" />
-        <InputBox
-          type="number"
-          id="retailPrice"
-          placeholder="Enter item retail price"
-          value={retailPrice}
-          onChange={setRetailPrice}
-          required={true}
-        />
+      <Label htmlFor="retailPrice" labelVal="SRP" />
+      <InputBox
+        type="number"
+        id="retailPrice"
+        placeholder="Enter item retail price"
+        value={retailPrice}
+        onChange={setRetailPrice}
+        required={true}
+      />
 
-        <Label htmlFor="sellingPrice" labelVal="Price" />
-        <InputBox
-          type="number"
-          id="sellingPrice"
-          placeholder="Enter item selling price"
-          value={sellingPrice}
-          onChange={setSellingPrice}
-          required={true}
-        />
+      <Label htmlFor="sellingPrice" labelVal="Price" />
+      <InputBox
+        type="number"
+        id="sellingPrice"
+        placeholder="Enter item selling price"
+        value={sellingPrice}
+        onChange={setSellingPrice}
+        required={true}
+      />
 
-        <Label htmlFor="quantity" labelVal="Quantity" />
-        <InputBox
-          type="number"
-          id="quantity"
-          placeholder="Enter item quantity"
-          value={quantity}
-          onChange={setQuantity}
-          required={true}
-        />
+      <Label htmlFor="quantity" labelVal="Quantity" />
+      <InputBox
+        type="number"
+        id="quantity"
+        placeholder="Enter item quantity"
+        value={quantity}
+        onChange={setQuantity}
+        required={true}
+      />
 
-        <Label htmlFor="description" labelVal="Description" />
-        <TextArea
-          id="description"
-          rows="3"
-          placeholder="Enter item description"
-          value={description}
-          onChange={setDescription}
-        />
-      </div>
+      <Label htmlFor="description" labelVal="Description" />
+      <TextArea
+        id="description"
+        rows="3"
+        placeholder="Enter item description"
+        value={description}
+        onChange={setDescription}
+      />
 
       <Button type="submit" value="Submit" />
     </form>

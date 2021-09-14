@@ -6,7 +6,7 @@ const InputBox = (props) => {
   const required = props.required;
 
   return (
-    <div>
+    <div className="has-info">
       <input
         type={type}
         className="form-control"

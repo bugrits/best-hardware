@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// constants
+// Constants
 import { API_HOST } from "../configs/config";
 
 // Common Components
@@ -64,7 +64,7 @@ const Modal = (props) => {
       updateItem(itemForEdit._id)
         .then(() => {
           props.onClick(false);
-          window.location.reload();
+          props.reloadItems();
         })
         .catch((err) => console.log(`Error: ${err}`));
     }
@@ -87,15 +87,13 @@ const Modal = (props) => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Edit Item</h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
+            <i
+              className="material-icons"
+              style={{ cursor: "pointer" }}
               onClick={closeModal}
             >
-              <span aria-hidden="true"></span>
-            </button>
+              close
+            </i>
           </div>
 
           <div className="modal-body">
@@ -162,7 +160,7 @@ const Modal = (props) => {
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-info"
               onClick={saveChanges}
             >
               Save

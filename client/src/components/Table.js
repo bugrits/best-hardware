@@ -1,5 +1,4 @@
-import { FaPenSquare } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
+import "./Table.css";
 
 const Table = (props) => {
   const columnNames = props.columnNames;
@@ -7,7 +6,7 @@ const Table = (props) => {
 
   return (
     <div>
-      <table className="table table-hover">
+      <table className="table table-hover table-wrapper-scroll-y my-custom-scrollbar">
         <thead>
           <tr>
             {columnNames.map((columnName, index) => (
@@ -27,13 +26,18 @@ const Table = (props) => {
               <td>{item.quantity}</td>
               <td>{item.description}</td>
               <td>
-                <FaPenSquare
+                <i
+                  className="material-icons"
                   style={{ cursor: "pointer" }}
                   onClick={() =>
                     props.onClick({ showEditModal: true, id: item._id })
                   }
-                />
-                <FaTrash style={{ cursor: "pointer", marginLeft: "10px" }} />
+                >
+                  edit
+                </i>
+                <i className="material-icons" style={{ cursor: "pointer" }}>
+                  delete
+                </i>
               </td>
             </tr>
           ))}

@@ -1,5 +1,6 @@
-import Inventory from "./features/inventory_management/Inventory";
+import ItemsInventory from "./features/inventory_management/ItemsInventory";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -8,9 +9,9 @@ function App() {
         <Header />
       </header>
       <div className="container">
-        <Inventory />
+        <ItemsInventory />
       </div>
-      <footer></footer>
+      <Footer />
     </div>
   );
 }
