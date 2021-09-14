@@ -25,7 +25,8 @@ const routes = (Item) => {
   itemRouter
     .route("/items/:itemId")
     .get(controller.getItem)
-    .patch(controller.updateItem);
+    .patch(controller.updateItem)
+    .delete(controller.deleteItem);
 
   return itemRouter;
 };

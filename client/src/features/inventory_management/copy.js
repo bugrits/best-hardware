@@ -5,5 +5,5 @@ export const columnNames = [
   "Price",
   "Quantity",
   "Description",
-  "Action",
+  "Actions",
 ];

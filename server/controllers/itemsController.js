@@ -51,7 +51,16 @@ const itemsController = (Item) => {
     }
   };
 
-  return { getItems, postItem, getItem, updateItem };
+  const deleteItem = async (req, res) => {
+    try {
+      await req.item.delete();
+      res.status(200).json({ success: true, message: "Deleted successfully!" });
+    } catch (err) {
+      res.json({ success: false, message: err });
+    }
+  };
+
+  return { getItems, postItem, getItem, updateItem, deleteItem };
 };
 
 module.exports = itemsController;

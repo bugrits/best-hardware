@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function App() {
   return (
-    <div>
+    <>
       <header>
         <Header />
       </header>
@@ -12,7 +12,7 @@ function App() {
         <ItemsInventory />
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
