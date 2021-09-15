@@ -5,12 +5,12 @@ const Table = (props) => {
   const items = props.items;
 
   return (
-    <div>
-      <table className="table table-hover table-wrapper-scroll-y my-custom-scrollbar">
+    <div className="table-wrapper-scroll-y my-custom-scrollbar">
+      <table className="table table-hover">
         <thead>
           <tr>
             {columnNames.map((columnName, index) => (
-              <th scope="col" key={index}>
+              <th scope="col" key={index} className="table-sticky">
                 {columnName}
               </th>
             ))}
@@ -26,18 +26,29 @@ const Table = (props) => {
               <td>{item.quantity}</td>
               <td>{item.description}</td>
               <td>
-                <i
-                  className="material-icons"
-                  style={{ cursor: "pointer" }}
-                  onClick={() =>
-                    props.onClick({ showEditModal: true, id: item._id })
-                  }
-                >
-                  edit
-                </i>
-                <i className="material-icons" style={{ cursor: "pointer" }}>
-                  delete
-                </i>
+                <div style={{ display: "flex" }}>
+                  <i
+                    className="material-icons"
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      props.onClickEdit({ showEditModal: true, id: item._id })
+                    }
+                  >
+                    edit
+                  </i>
+                  <i
+                    className="material-icons"
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      props.onClickDelete({
+                        showDeleteModal: true,
+                        id: item._id,
+                      })
+                    }
+                  >
+                    delete
+                  </i>
+                </div>
               </td>
             </tr>
           ))}

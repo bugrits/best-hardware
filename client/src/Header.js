@@ -10,7 +10,7 @@ const Header = () => {
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             <span className="sr-only">Toggle navigation</span>

@@ -111,7 +111,7 @@ const ItemsForm = (props) => {
         onChange={setDescription}
       />
 
-      <Button type="submit" value="Submit" />
+      <Button type="submit" value="Add Item To Inventory" />
     </form>
   );
 };

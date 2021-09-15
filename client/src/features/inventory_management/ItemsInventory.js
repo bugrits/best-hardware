@@ -13,6 +13,7 @@ import SearchBar from "../../components/SearchBar";
 const ItemsInventory = () => {
   const [items, setItems] = useState([]);
   const [itemsToDisplay, setItemsToDisplay] = useState([]);
+  let [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     loadItems();
@@ -29,10 +30,23 @@ const ItemsInventory = () => {
   const loadItems = async () => {
     const itemsFromServer = await fetchItems();
     setItems(itemsFromServer);
-    setItemsToDisplay(itemsFromServer);
+
+    if (searchTerm !== "") {
+      setItemsToDisplay(
+        itemsFromServer.filter(
+          (i) =>
+            i.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            i.code.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    } else {
+      setItemsToDisplay(itemsFromServer);
+    }
   };
 
   const filterItems = (chars) => {
+    setSearchTerm(chars);
+
     if (chars !== "") {
       setItemsToDisplay(
         items.filter(
