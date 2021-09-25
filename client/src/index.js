@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/css/material-kit.css?v=2.0.7";
 import App from "./App";
-import { store } from "./app/store";
-import { Provider } from "react-redux";
+// import { store } from "./app/store";
+// import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
