@@ -22,7 +22,9 @@ const ItemsInventory = () => {
   const fetchItems = async () => {
     const apiURL = `${API_HOST}/api/items`;
     const res = await axios.get(apiURL);
-    const data = res.data;
+    const data = res.data
+      .filter((obj) => obj.isActive)
+      .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate));
 
     return data;
   };
@@ -78,7 +80,5 @@ const ItemsInventory = () => {
     </div>
   );
 };
-
-// export const { loadItems } = loadItems();
 
 export default ItemsInventory;
